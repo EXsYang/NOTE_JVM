@@ -245,7 +245,7 @@ Parallel Old 收集器采用了<mark>标记-压缩算法</mark>，但同样也�
 
   $$ ParallelGCThreads = \begin{cases} CPU_Count & \text (CPU_Count <= 8) \\ 3 + (5 \* CPU＿Count / 8) & \text (CPU_Count > 8) \end{cases} $$
 
-- `-XX:MaxGCPauseMillis` 设置垃圾收集器最大停顿时间（即 STw 的时间）。单位是毫秒。
+- `-XX:MaxGCPauseMillis` 设置垃圾收集器最大停顿时间（即 STW 的时间）。单位是毫秒。
 
   - 为了尽可能地把停顿时间控制在 MaxGCPauseMills 以内，收集器在工作时会调整 Java 堆大小或者其他一些参数。
   - 对于用户来讲，停顿时间越短体验越好。但是在服务器端，我们注重高并发，整体的吞吐量。所以服务器端适合 Parallel，进行控制。
